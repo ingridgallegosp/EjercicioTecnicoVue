@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import CryptoJS from 'crypto-js'
-import { API_PUBLIC_KEY, API_PRIVATE_KEY } from '../utils/key.js'
 
 const data = ref([]) // Empty array to store fetched data
 
-const publicKey = API_PUBLIC_KEY;
-const privateKey = API_PRIVATE_KEY;
+const publicKey = import.meta.env.VITE_API_PUBLIC_KEY;
+const privateKey = import.meta.env.VITE_API_PRIVATE_KEY;
 
 const timestamp = new Date().getTime()
 const hashValue = CryptoJS.MD5(timestamp + privateKey + publicKey)
@@ -36,15 +35,10 @@ const getData = async () => {
     data.value = json.data.results
     console.log(data.value)
 }
- */
+*/
 
 </script> 
 
 <template>
-    
+
 </template>
-
-
-
-
-
