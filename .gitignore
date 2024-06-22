@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 
 /src/utils/key.js
+*.env

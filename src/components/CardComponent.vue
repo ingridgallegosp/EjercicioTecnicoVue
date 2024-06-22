@@ -2,6 +2,10 @@
 
 const props = defineProps<
     {
+        id: {
+            type: String,
+            required: true
+        },
         title: {
             type: String,
             required: true
@@ -31,16 +35,16 @@ const props = defineProps<
     <div class="comic-card">
         <figure class="cover">
             <img 
-            src={{ card.image }}
-            alt={{ card.title}}/>
+            src={{ props.image }}
+            alt={{ props.title}}/>
         </figure>
         <div class="title">
             <h1>{{ card.title }}</h1>
         </div>
         <div class="description">
-            <p>year: {{ card.year }}</p>
-            <p>year: {{ card.year }}</p>
-            <p>year: {{ card.year }}</p>
+            <p>year: {{ props.year }}</p>
+            <p>year: {{ props.year }}</p>
+            <p>year: {{ props.year }}</p>
         </div>
     </div>
 </template>

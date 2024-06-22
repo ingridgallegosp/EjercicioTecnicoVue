@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import NotFoundView from '../views/NotFoundView.vue'
+//import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,16 +25,15 @@ const router = createRouter({
             name: 'not-found',
             component: NotFoundView
         },*/
+        // Redirect to home if the page can't be found
         {
             path: '/:pathMatch(.*)*',
             name: 'not-found',
             beforeEnter:(to, from, next) => {
-                // Redirect to home
                 next({ name: 'home' });
             }
         }
-    ],
-
+    ]
 })
 
 export default router 

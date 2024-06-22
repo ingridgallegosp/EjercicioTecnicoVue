@@ -1,46 +1,50 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
-import CryptoJS from 'crypto-js';
-import { API_PUBLIC_KEY, API_PRIVATE_KEY } from '../utils/key.js';
+import { ref, onMounted } from 'vue'
+import CryptoJS from 'crypto-js'
+import { API_PUBLIC_KEY, API_PRIVATE_KEY } from '../utils/key.js'
+
+const data = ref([]) // Empty array to store fetched data
 
 const publicKey = API_PUBLIC_KEY;
 const privateKey = API_PRIVATE_KEY;
 
-const baseUrl = 'https://gateway.marvel.com/v1/public/series';
+const timestamp = new Date().getTime()
+const hashValue = CryptoJS.MD5(timestamp + privateKey + publicKey)
 
-const timestamp = computed(() => Math.floor(Date.now() / 1000));
-
-// Function to generate hash using CryptoJS
-const getHash = (timestamp: number, privateKey: string, publicKey: string) => {
-    const message = `${timestamp}${privateKey}${publicKey}`;
-    return CryptoJS.MD5(message).toString();
-};
-
-const data = ref([]); // Empty array to store fetched data
+const baseUrl = 'https://gateway.marvel.com/v1/public/series'
+const apiUrl = `${baseUrl}?ts=${timestamp}&apikey=${publicKey}&hash=${hashValue}`
 
 // Function to fetch data
 const getData = async () => {
-    const ts = timestamp.value;
-    const hashValue = getHash(ts, privateKey, publicKey);
-
-    const url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hashValue}`;
-
     try {
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
+        const response = await fetch(apiUrl);
         const json = await response.json();
         data.value = json.data.results;
         console.log(data.value)
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
     }
 };
 
 onMounted(async () => {
-    await getData();
-});
-</script>
+    await getData()
+})
+/*
+const getData = async () => {
+    const response = await fetch(apiUrl)
+    const json = await response.json()
+    data.value = json.data.results
+    console.log(data.value)
+}
+ */
+
+</script> 
+
+<template>
+    
+</template>
+
+
+
+
+
