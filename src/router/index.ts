@@ -20,12 +20,23 @@ const router = createRouter({
             name: 'history',
             component: () => import('../views/HistoryView.vue')
         },
-        {
+        /*{
             path: '/:pathMatch(.*)*',
             name: 'not-found',
             component: NotFoundView
+        },*/
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            beforeEnter:(to, from, next) => {
+                // Redirect to home
+                next({ name: 'home' });
+            }
         }
-    ]
+    ],
+
 })
 
-export default router
+export default router 
+
+
