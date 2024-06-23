@@ -1,6 +1,7 @@
 <script setup>
+import { defineProps } from 'vue';
 
-const props = defineProps<
+const props = defineProps(
     {
         id: {
             type: String,
@@ -10,8 +11,12 @@ const props = defineProps<
             type: String,
             required: true
         },
-        year: {
-            type: String,
+        startYear: {
+            type: Number,
+            required: false
+        },
+        endYear: {
+            type: Number,
             required: false
         },
         image: {
@@ -22,44 +27,53 @@ const props = defineProps<
             type: String,
             required: false
         },
-        formatType: { //collection or comic
+        type: { //collection or comic
             type: String,
             required: false
         }
     }
->
+)
 
+const handleClick = () => {
+    console.log('estas haciendo clic')
+};
 </script>
 
 <template>
-    <div class="comic-card">
+    <div class="comic-card" @click="handleClick">
         <figure class="cover">
-            <img 
-            src={{ props.image }}
-            alt={{ props.title}}/>
+            <img :src="props.image"  :alt="props.title"/>
         </figure>
         <div class="title">
-            <h1>{{ card.title }}</h1>
+            <h3>{{ props.title }}</h3>
         </div>
         <div class="description">
-            <p>year: {{ props.year }}</p>
-            <p>year: {{ props.year }}</p>
-            <p>year: {{ props.year }}</p>
+            <p>Start Year: {{ props.endYear }}</p>
+            <p>End Year: {{ props.endYear }}</p>
+            <p :style="{color: props.type === 'limited' ? 'blue' : props.type === 'collection' ? 'green' : 'black'}">Type: {{ props.type }}</p>
         </div>
     </div>
 </template>
 
 <style scoped>
+.comic-card{
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    cursor: pointer;
 
-.card{
-    background-color: black;
+    .cover{
+        width: 100%;
+        display: absolute;
 
-    .title{
-        color: blue;
-    }
-    .description{
-        color: blue;
+
     }
 }
+
+.comic-card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
 
 </style>

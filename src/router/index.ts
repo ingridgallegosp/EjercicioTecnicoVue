@@ -1,34 +1,34 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-//import NotFoundView from '../views/NotFoundView.vue'
+import { routes } from '../utils/routes.js'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
-            path: '/',
+            path: routes.HOME,
             name: 'home',
             component: HomeView
         },
         {
-            path: '/detail',
+            path: routes.DETAIL,
             name: 'detail',
             component: () => import('../views/DetailView.vue')
         },
         {
-            path: '/history',
+            path: routes.HISTORY,
             name: 'history',
             component: () => import('../views/HistoryView.vue')
         },
         /*{
             path: '/:pathMatch(.*)*',
-            name: 'not-found',
+            name: 'error404',
             component: NotFoundView
         },*/
         // Redirect to home if the page can't be found
         {
             path: '/:pathMatch(.*)*',
-            name: 'not-found',
+            name: routes.NOTFOUND,
             beforeEnter:(to, from, next) => {
                 next({ name: 'home' });
             }
