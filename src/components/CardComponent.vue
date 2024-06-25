@@ -50,7 +50,9 @@ const handleClick = () => {
         <div class="description">
             <p>Start Year: {{ props.endYear }}</p>
             <p>End Year: {{ props.endYear }}</p>
-            <p :style="{color: props.type === 'limited' ? 'blue' : props.type === 'collection' ? 'green' : 'black'}">Type: {{ props.type ? props.type :'N/A' }}</p>
+            <p :style="{color: props.type === 'limited' ? 'blue' : props.type === 'collection' ? 'green' : 'black'}">
+                Type: {{ props.type ? props.type :'N/A' }}
+            </p>
         </div>
     </div>
 </template>

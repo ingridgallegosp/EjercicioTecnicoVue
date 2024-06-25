@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import CryptoJS from 'crypto-js'
 
-export const apiData = ref([]) // Empty array to store fetched data
+export const apiData = ref([]) 
 
 const publicKey = import.meta.env.VITE_API_PUBLIC_KEY;
 const privateKey = import.meta.env.VITE_API_PRIVATE_KEY;

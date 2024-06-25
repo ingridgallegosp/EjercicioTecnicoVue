@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { apiData, fetchData } from '../api' // Asegúrate de que la ruta sea correcta
+import { apiData, fetchData } from '../api'
 import HeaderComponent from '../components/HeaderComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
 
 const data = ref([]);
-  
+
 const getData = async () => {
     await fetchData();
     data.value = apiData.value;
@@ -39,10 +39,7 @@ main{
     padding: 5%;
     overflow:scroll;
     overflow-x: hidden;
-
     background-color: var(--gray-light);
-
-
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
     gap: 20px;
