@@ -19,9 +19,11 @@ const store = savedItemsStore()
     <div class="history">
         <aside>
         <h6>Vistos Recientemente</h6>
+        <p>Fantastic 4</p>
+        <p>Wolverine</p>
+        <p>Spider Man</p>
         </aside>
         <article>
-            <h6>Favoritos</h6>
             <DetailCardComponent
                 v-for="item in store.savedItems"
                 :key="item.id"
