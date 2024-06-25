@@ -51,6 +51,9 @@ onMounted(() => {
 .detail{
     display: flex;
     justify-content: center;
+    background-color: rgba(238, 238, 238, 0.329);
+    min-height: calc(100% - 16%);
+
 }
 
 </style>

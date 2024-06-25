@@ -1,17 +1,20 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const savedItemsStore = defineStore('savedItems', () => {
+export const useSavedItemsStore = defineStore('savedItems', () => {
 
-    const savedItems = ref([
+    /* const savedItems = ref([
         {
             id: '05',
             title:'Hola'
         }
-    ])
+    ]) */ //para pruebas en History View
+    const savedItems = ref([])
 
-    const addItem = () => {
+    const addItem = (item) => {
         console.log('agregando')
+        savedItems.value.push(item)
+
     }
 
     const removeItem = () => {

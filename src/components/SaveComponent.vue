@@ -1,29 +1,24 @@
 <script setup>
-import { ref } from 'vue'
-import {savedItemsStore} from '../stores/savedItems';
+import { ref, defineEmits } from 'vue'
 
-// function to save or unsave the card in history
+const emit = defineEmits(['save'])
+
 const isSaved = ref(false);
 
-//import the store
-const store = savedItemsStore()
-
-
-// function to save or unsave the card in history
-const save = () => {
+// function to 'alert' that the Father Component has been saved
+const handleSave = () => {
     isSaved.value = !isSaved.value;
 
     if (isSaved.value) {
-        store.addItem();
-    } else {
-        store.removeItem();
-    }
+        emit('save')
+    } 
 }
 
 </script>
 
 <template>
-    <div class="icon" @click="save">
+    <div class="icon" @click="handleSave()"> <!-- be careful with the function use+() -->
+        
         <!-- v-if the card is not saved, shows the solid icon  -->
         <font-awesome-icon v-if="!isSaved" icon="fa-regular fa-heart" />
         <font-awesome-icon v-else icon="fa-solid fa-heart" />
