@@ -1,13 +1,20 @@
 <script setup>
 import { ref } from 'vue'
+import savedItemsStore from '../stores/saveItems'
 
 // function to save or unsave the card in history
 const isSaved = ref(false);
 
+//import the store
+const savedItemsStore = savedItemsStore();
+
+
+// function to save or unsave the card in history
 const save = () => {
     isSaved.value = !isSaved.value;
 
 };
+
 </script>
 
 <template>

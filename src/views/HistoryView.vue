@@ -1,12 +1,19 @@
 <script setup>
 import HeaderComponent from '@/components/HeaderComponent.vue'
+import { computed } from 'vue';
 
+//import store
+const store = useStore()
+
+//computed function to access store state
+const storeData = () => computed(() => store.state.id)
 </script>
 
 <template>
     <HeaderComponent></HeaderComponent>
     <div class="history">
         <h1>page in construction</h1>
+        <p>{{storeData}}</p>
     </div>
 </template>
 
