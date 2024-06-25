@@ -1,11 +1,33 @@
-@import './base.css';
+
+:root {
+  --white:#FEFEFE;
+  --blue:#0077fff3	;
+  --black: #444444;
+  --gray:#d3d3d3;
+  --gray-light:#faf9f9;
+  --gray-dark:#616161;
+  --red: #FF2846;
+  --red-dark: #7b0701;
+  --green:#129c12;
+  
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 #app {
-  max-width: 1280px;
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
-  height: 100% vh;
-  width: 100% vw;
+}
+
+body{
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+
 }
 
 /*scroll bar*/
@@ -17,9 +39,9 @@
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gray-dark); 
+  background: var(--black); 
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gray-dark); 
+  background: var(--black); 
 }

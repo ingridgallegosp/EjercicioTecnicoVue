@@ -26,7 +26,7 @@ onMounted(() => {
             :title="item.title"
             :startYear="item.startYear"
             :endYear="item.endYear"
-            :image="item.image"
+            :thumbnail="`${item.thumbnail.path}.${item.thumbnail.extension}`"
             :type="item.type"
         /> 
     </main>
@@ -38,8 +38,14 @@ main{
     margin: 0%;
     padding: 5%;
     overflow:scroll;
+    overflow-x: hidden;
+
+    background-color: var(--gray-light);
+
+
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
     gap: 20px;
+    justify-items: center;
 }
 </style>
