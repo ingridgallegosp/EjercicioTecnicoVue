@@ -7,7 +7,7 @@ import CardComponent from '@/components/CardComponent.vue'
 const data = ref([]);
 
 const getData = async () => {
-    await fetchData();
+    await fetchData('series');
     data.value = apiData.value;
     console.log(data.value)
 };
