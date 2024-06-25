@@ -24,8 +24,12 @@ const props = defineProps(
             type: String,
             required: false
         },
-        resources: {
-            type: String,
+        comics: {
+            type: Object,
+            required: false
+        },
+        stories: {
+            type: Object,
             required: false
         },
         type: { //collection or comic
@@ -56,6 +60,8 @@ const handleClick = () => {
             <p :style="{color: props.type === 'limited' ? 'blue' : props.type === 'collection' ? 'green' : 'black'}">
                 Type: {{ props.type ? props.type :'N/A' }}
             </p>
+            <p>Comics: {{ props.comics.available }}</p>
+            <p>Stories: {{ props.stories.available }}</p>
         </div>
     </div>
 </template>

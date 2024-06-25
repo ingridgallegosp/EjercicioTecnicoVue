@@ -16,7 +16,11 @@ const getData = async () => {
     data.value = apiData.value;
     console.log(data.value)
 };
-  
+
+// url for searching id resumen
+
+// /v1/public/series/{seriesId}/comics
+// /v1/public/series/{seriesId}/stories
 onMounted(() => {
     getData();
 });
@@ -36,6 +40,8 @@ onMounted(() => {
             :endYear="item.endYear"
             :thumbnail="`${item.thumbnail.path}.${item.thumbnail.extension}`"
             :type="item.type"
+            :comics="item.comics"
+            :stories="item.stories"
             >
         </DetailCardComponent>
     </div>

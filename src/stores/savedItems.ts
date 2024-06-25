@@ -5,7 +5,8 @@ export const savedItemsStore = defineStore('savedItems', () => {
 
     const savedItems = ref([
         {
-            id:'05'
+            id: '05',
+            title:'Hola'
         }
     ])
 

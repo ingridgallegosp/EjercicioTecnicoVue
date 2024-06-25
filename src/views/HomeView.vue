@@ -29,6 +29,8 @@ onMounted(() => {
             :endYear="item.endYear"
             :thumbnail="`${item.thumbnail.path}.${item.thumbnail.extension}`"
             :type="item.type"
+            :comics="item.comics"
+            :stories="item.stories"
         /> 
     </main>
 </template>

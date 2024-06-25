@@ -1,6 +1,5 @@
 <script setup>
-import { defineProps, ref } from 'vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { defineProps } from 'vue'
 import SaveComponent from './SaveComponent.vue'
 
 const props = defineProps(
@@ -25,8 +24,12 @@ const props = defineProps(
             type: String,
             required: false
         },
-        resources: {
-            type: String,
+        comics: {
+            type: Object,
+            required: false
+        },
+        stories: {
+            type: Object,
             required: false
         },
         type: { //collection or comic
@@ -47,6 +50,9 @@ const props = defineProps(
             <p>Start Year: {{ props.endYear }}</p>
             <p>End Year: {{ props.endYear }}</p>
             <p>Type: {{ props.type ? props.type :'N/A' }} </p>
+            <p>Comics: {{ props.comics }} </p>
+            <p>Stories: {{ props.stories }} </p>
+            
         </div>
         <div class="image">
             <figure class="cover">
@@ -59,7 +65,7 @@ const props = defineProps(
 
 <style scoped>
 .detail-card{
-    width: 90%;
+    width: 70%;
     display: grid;
     grid-template-columns:  repeat(2, 1fr);
     padding: 5%;

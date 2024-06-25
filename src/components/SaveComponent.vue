@@ -6,21 +6,17 @@ import {savedItemsStore} from '../stores/savedItems';
 const isSaved = ref(false);
 
 //import the store
-const savedItems = savedItemsStore()
+const store = savedItemsStore()
 
-
-const item = {
-    id:'1'
-}
 
 // function to save or unsave the card in history
 const save = () => {
     isSaved.value = !isSaved.value;
 
     if (isSaved.value) {
-        savedItems.addItem(item);
+        store.addItem();
     } else {
-        savedItems.removeItem(item.id);
+        store.removeItem();
     }
 }
 

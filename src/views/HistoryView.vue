@@ -1,28 +1,37 @@
 <script setup>
-import HeaderComponent from '@/components/HeaderComponent.vue'
+import {savedItemsStore} from '../stores/savedItems'
+import HeaderComponent from '../components/HeaderComponent.vue'
+import DetailCardComponent from '../components/DetailCardComponent.vue'
+
 import { computed } from 'vue'
-
-//import store
-//const store = useStore()
-
-//computed function to access store state
-//const storeData = () => computed(() => store.state.id)
 
 
 //import the store
-//const savedItemsStore = savedItemsStore()
+const store = savedItemsStore()
 
-//view items in store
-//const savedItems = savedItemsStore.savedItems
-
+//computed function to access store state
+//const storeData =  computed(() => store.savedItems) //same as sore.savedItems
 
 </script>
 
 <template>
     <HeaderComponent></HeaderComponent>
     <div class="history">
-        <h1>page in construction</h1>
-        <!-- <p>{{storeData}}</p> -->
+        <aside>
+        <h6>Vistos Recientemente</h6>
+        </aside>
+        <article>
+            <h6>Favoritos</h6>
+            <DetailCardComponent
+                v-for="item in store.savedItems"
+                :key="item.id"
+                :title="item.title">
+            </DetailCardComponent>
+            <p>page in construction</p>
+            <p>{{store.savedItems}}</p>
+            <!-- <p>{{storeData}}</p> -->
+
+        </article>
     </div>
 </template>
 
