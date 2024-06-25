@@ -9,10 +9,18 @@ export const savedItemsStore = defineStore('savedItems', () => {
         }
     ])
 
+    const addItem = () => {
+        console.log('agregando')
+    }
 
+    const removeItem = () => {
+        console.log('quitando')
+    }
 
     return {
         savedItems,
+        addItem,
+        removeItem
     }
 
 })
