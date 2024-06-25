@@ -23,6 +23,7 @@ onMounted(() => {
         <CardComponent
             v-for="item in data"
             :key="item.id"
+            :id="item.id"
             :title="item.title"
             :startYear="item.startYear"
             :endYear="item.endYear"
@@ -39,7 +40,7 @@ main{
     padding: 5%;
     overflow:scroll;
     overflow-x: hidden;
-    background-color: var(--gray-light);
+     background-color: rgba(238, 238, 238, 0.329);
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
     gap: 20px;

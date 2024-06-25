@@ -23,6 +23,8 @@ import {routes} from '../utils/routes.js'
     height: 16%;
     background-color: var(black);
     color: var(white) black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+
 
     nav{
         .logo{
@@ -56,7 +58,6 @@ import {routes} from '../utils/routes.js'
             justify-content: center;
             align-items: center;
             list-style: none;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
             li{
                 padding: 0.8% 3% ;

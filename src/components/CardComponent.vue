@@ -1,10 +1,11 @@
 <script setup>
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps(
     {
         id: {
-            type: String,
+            type: Number,
             required: true
         },
         title: {
@@ -33,9 +34,10 @@ const props = defineProps(
         }
     }
 )
-
+const router = useRouter();
 const handleClick = () => {
     console.log('estas haciendo clic')
+    router.push(`/detail/${props.id}`)
 };
 </script>
 

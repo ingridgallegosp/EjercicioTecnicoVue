@@ -1,6 +1,6 @@
 export const routes = {
     HOME: "/",
-    DETAIL: "/detail",
+    DETAIL: "/detail/:id",
     HISTORY: "/history",
     NOTFOUND: "/error404",
 };
