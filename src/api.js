@@ -14,6 +14,7 @@ const hashValue = CryptoJS.MD5(timestamp + privateKey + publicKey)
 
 // Function to fetch data
 export const fetchData = async (category) => {
+    
     const baseUrl = 'https://gateway.marvel.com/v1/public/'+`${category}`
     const apiUrl = `${baseUrl}?ts=${timestamp}&apikey=${publicKey}&hash=${hashValue}`
 

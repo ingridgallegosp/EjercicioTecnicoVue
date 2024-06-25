@@ -12,6 +12,7 @@ import {routes} from '../utils/routes.js'
             </figure>
             <ul>
                 <li><RouterLink :to="routes.HOME">HOME</RouterLink></li>
+                <li><span>|</span></li>
                 <li><RouterLink :to="routes.HISTORY">HISTORY</RouterLink></li>
             </ul>
         </nav>
@@ -24,7 +25,6 @@ import {routes} from '../utils/routes.js'
     background-color: var(black);
     color: var(white) black;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-
 
     nav{
         .logo{
@@ -60,12 +60,16 @@ import {routes} from '../utils/routes.js'
             list-style: none;
 
             li{
-                padding: 0.8% 3% ;
+                padding: 0.8% 2% ;
 
                 a{
                     text-decoration: none;
                     font-size: 16px;
-                    color: var(--white)
+                    color: var(--white);
+                }
+                span{
+                    color: var(--white);
+                    font-weight: 100;
                 }
             }
         }
@@ -77,8 +81,6 @@ import {routes} from '../utils/routes.js'
     .header nav .logo ul li {
         padding: 0.5% 4%;
     }
-  
 }
-
 
 </style>

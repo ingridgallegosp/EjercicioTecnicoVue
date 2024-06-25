@@ -1,10 +1,12 @@
 <script setup>
+import HeaderComponent from '@/components/HeaderComponent.vue'
 
 </script>
 
 <template>
-    <div class="about">
-        <h1>History</h1>
+    <HeaderComponent></HeaderComponent>
+    <div class="history">
+        <h1>page in construction</h1>
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <script setup>
-import { defineProps } from 'vue';
-import { useRouter } from 'vue-router';
+import { defineProps } from 'vue'
+import { useRouter } from 'vue-router'
 
 const props = defineProps(
     {
@@ -34,11 +34,12 @@ const props = defineProps(
         }
     }
 )
-const router = useRouter();
+
+const router = useRouter()
 const handleClick = () => {
     console.log('estas haciendo clic')
     router.push(`/detail/${props.id}`)
-};
+}
 </script>
 
 <template>
@@ -96,7 +97,5 @@ const handleClick = () => {
 .comic-card:hover {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
 }
-
-
 
 </style>

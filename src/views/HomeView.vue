@@ -40,7 +40,7 @@ main{
     padding: 5%;
     overflow:scroll;
     overflow-x: hidden;
-     background-color: rgba(238, 238, 238, 0.329);
+    background-color: rgba(238, 238, 238, 0.329);
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
     gap: 20px;
