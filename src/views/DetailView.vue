@@ -88,7 +88,7 @@ onMounted(() => {
 
 <style scoped>
 .detail{
-    min-height: 80vh;
+    min-height: 78vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
