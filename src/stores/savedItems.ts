@@ -13,13 +13,19 @@ export const useSavedItemsStore = defineStore('savedItems', () => {
     const savedItems = ref([])
 
     const addItem = (item) => {
-        console.log('agregando')
-        savedItems.value.push(item)
+        //console.log('agregando')
+        //savedItems.value.push(item)
+        // Condition
+        const exists = savedItems.value.some(savedItem => savedItem.id === item.id);
+        if (!exists) {
+            savedItems.value.push(item);
+        }
     }
 
-    const removeItem = () => {
-        console.log('quitando')
-    }
+    const removeItem = (itemId) => {
+        //console.log('quitando');
+        savedItems.value = savedItems.value.filter(item => item.id !== itemId);
+    };
 
     return {
         savedItems,

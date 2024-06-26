@@ -5,6 +5,7 @@ import { apiData, fetchData } from '../api'
 
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import DetailCardComponent from '@/components/DetailCardComponent.vue'
+import FooterComponent from '../components/FooterComponent.vue'
 
 // using route info to fetch id data //route.params, route.name, route.path, route.fullPath,
 const route = useRoute()
@@ -82,11 +83,12 @@ onMounted(() => {
             </div>
         </article>
     </div>
+    <FooterComponent></FooterComponent>
 </template>
 
 <style scoped>
 .detail{
-    min-height: calc(100vh - (100vh * 0.16));
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

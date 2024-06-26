@@ -2,7 +2,9 @@
 import { onMounted, ref } from 'vue'
 import { apiData, fetchData } from '../api'
 import HeaderComponent from '../components/HeaderComponent.vue'
-import CardComponent from '@/components/CardComponent.vue'
+import CardComponent from '../components/CardComponent.vue'
+import FooterComponent from '../components/FooterComponent.vue'
+
 
 const data = ref([]);
 
@@ -33,6 +35,7 @@ onMounted(() => {
             :stories="item.stories"
         /> 
     </main>
+    <FooterComponent></FooterComponent>
 </template>
 
 <style scoped>

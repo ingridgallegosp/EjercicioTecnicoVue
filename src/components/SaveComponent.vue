@@ -1,7 +1,7 @@
 <script setup>
 import { ref, defineEmits } from 'vue'
 
-const emit = defineEmits(['save'])
+const emit = defineEmits(['save', 'remove']);
 
 const isSaved = ref(false);
 
@@ -11,13 +11,15 @@ const handleSave = () => {
 
     if (isSaved.value) {
         emit('save')
-    } 
+    } else {
+        emit('remove');
+    }
 }
 
 </script>
 
 <template>
-    <div class="icon" @click="handleSave()"> <!-- be careful with the function use+() -->
+    <div class="icon" @click="handleSave()"> <!-- be careful with the function use () -->
 
         <!-- v-if the card is not saved, shows the solid icon  -->
          <!-- pending to include in general state -->

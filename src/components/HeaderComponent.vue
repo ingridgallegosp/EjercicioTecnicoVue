@@ -69,7 +69,6 @@ import {routes} from '../utils/routes.js'
                 }
                 &:hover{
                     font-weight: bold;
-
                 }
                 span{
                     color: var(--white);

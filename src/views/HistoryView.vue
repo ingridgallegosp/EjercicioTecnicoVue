@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import HeaderComponent from '../components/HeaderComponent.vue'
 import DetailCardComponent from '../components/DetailCardComponent.vue'
+import FooterComponent from '../components/FooterComponent.vue'
+
 import { useSavedItemsStore } from '../stores/savedItems'
 
 //import the store
@@ -9,7 +11,6 @@ const store = useSavedItemsStore()
 
 //computed function to access store state
 //const storeData =  computed(() => store.savedItems) //same as store.savedItems
-
 </script>
 
 <template>
@@ -44,6 +45,7 @@ const store = useSavedItemsStore()
 
         </article>
     </div>
+    <FooterComponent></FooterComponent>
 </template>
 
 <style scoped>

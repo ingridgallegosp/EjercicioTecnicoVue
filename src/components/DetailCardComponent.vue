@@ -55,6 +55,9 @@ const saveItem = () => {
     //console.log('Saving item:', newItem)
     store.addItem(newItem)
 }
+const removeItem = () => {
+    store.removeItem(props.id);
+};
 
 const router = useRouter()
 const handleClick = () => {
@@ -65,7 +68,7 @@ const handleClick = () => {
 </script>
 
 <template>
-    <div class="detail-card" @click="handleClick">
+    <div class="detail-card" >
         <div class="description">
             <div class="title">
                 <h4>{{ props.title }}</h4>
@@ -77,11 +80,11 @@ const handleClick = () => {
             <p>Stories: {{ props.stories }} </p>
         </div>
         <div class="image">
-            <figure class="cover">
+            <figure class="cover" @click="handleClick">
                 <img :src="props.thumbnail" :alt="props.title" />
             </figure>
             <!-- Listen for the 'save' event emitted by SaveComponent -->
-            <SaveComponent @save="saveItem" /> 
+            <SaveComponent @save="saveItem"  @remove="removeItem"/> 
         </div>
     </div>
 </template>
@@ -114,6 +117,7 @@ const handleClick = () => {
             align-items: center;
             img{
                 width: 90%;
+                cursor: pointer;
             }
         }
     }
