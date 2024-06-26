@@ -9,6 +9,11 @@ import DetailCardComponent from '@/components/DetailCardComponent.vue'
 // using route info to fetch id data //route.params, route.name, route.path, route.fullPath,
 const route = useRoute()
 const data = ref([])
+const comicsResumen = ref([])
+const storiesResumen = ref([])
+
+
+
 
 const getData = async () => {
     //access to the id info from the path
@@ -21,8 +26,26 @@ const getData = async () => {
 
 // /v1/public/series/{seriesId}/comics
 // /v1/public/series/{seriesId}/stories
+
+const getComicResumen = async () => {
+    await fetchData(`series/${route.params.id}/comics`);
+    comicsResumen.value = apiData.value;
+    console.log(comicsResumen.value)
+}; 
+
+const getStoriesResumen = async () => {
+    await fetchData(`series/${route.params.id}/stories`);
+    storiesResumen.value = apiData.value;
+    console.log(storiesResumen.value)
+}; 
+
+
 onMounted(() => {
     getData();
+    getComicResumen()
+    getStoriesResumen()
+
+  
 });
 
 </script>
@@ -40,20 +63,60 @@ onMounted(() => {
             :endYear="item.endYear"
             :thumbnail="`${item.thumbnail.path}.${item.thumbnail.extension}`"
             :type="item.type"
-            :comics="item.comics"
-            :stories="item.stories"
+            :comics="item.comics.available"
+            :stories="item.stories.available"
             >
         </DetailCardComponent>
+        <article>
+            <div class="aditional-info">
+                <h6>Comics Available Detail</h6>
+                <ul>
+                    <li v-for="comic in comicsResumen" :key="comic.id">{{ comic.title }}</li> 
+                </ul>
+            </div>
+            <div class="aditional-info">
+                <h6>Stories Available Detail</h6>
+                <ul>
+                    <li v-for="story in storiesResumen" :key="story.id">{{ story.title }}</li> 
+                </ul>
+            </div>
+        </article>
     </div>
 </template>
 
 <style scoped>
 .detail{
+    min-height: calc(100vh - (100vh * 0.16));
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: rgba(238, 238, 238, 0.329);
     min-height: calc(100% - 16%);
 
+    article{
+        width: 70%;
+        display: flex;
+        padding: 1% ;
+        background-color: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+        border-radius: 10px;
+
+        .aditional-info{
+            width: 100%;
+            padding: 1%;
+
+            ul{
+                list-style: none;
+
+                li{
+                    color: var(--gray-dark);
+                    font-size: 12px;
+                    padding: 1% 0;
+                }
+            }
+        }
+    }
 }
 
 </style>

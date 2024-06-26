@@ -8,13 +8,13 @@ export const useSavedItemsStore = defineStore('savedItems', () => {
             id: '05',
             title:'Hola'
         }
-    ]) */ //para pruebas en History View
+    ]) */ //for testing History View
+    
     const savedItems = ref([])
 
     const addItem = (item) => {
         console.log('agregando')
         savedItems.value.push(item)
-
     }
 
     const removeItem = () => {

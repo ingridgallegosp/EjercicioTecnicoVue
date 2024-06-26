@@ -10,7 +10,6 @@ const store = useSavedItemsStore()
 //computed function to access store state
 //const storeData =  computed(() => store.savedItems) //same as store.savedItems
 
-
 </script>
 
 <template>
@@ -23,10 +22,18 @@ const store = useSavedItemsStore()
             <p>Spider Man</p>
             </aside>
         <article class="detail">
+            <p v-if="store.savedItems.length === 0">You have not save your favorite items yet!</p>
             <DetailCardComponent
                 v-for="item in store.savedItems"
                 :key="item.id"
-                :title="item.title">
+                :id="item.id"
+                :title="item.title"
+                :startYear="item.startYear"
+                :endYear="item.endYear"
+                :thumbnail="`${item.thumbnail.path}.${item.thumbnail.extension}`"
+                :type="item.type"
+                :comics="item.comics"
+                :stories="item.stories">
             </DetailCardComponent>
 
             <!-- 
@@ -41,9 +48,10 @@ const store = useSavedItemsStore()
 
 <style scoped>
 .history{
+    
     display: flex;
     background-color: rgba(238, 238, 238, 0.329);
-    min-height: calc(100vh - 16%);
+    min-height: calc(100vh - (100vh * 0.16));
 
     aside{
         width: 15%;

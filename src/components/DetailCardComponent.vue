@@ -26,11 +26,11 @@ const props = defineProps({
         required: false,
     },
     comics: {
-        type: Object,
+        type: Number,
         required: false,
     },
     stories: {
-        type: Object,
+        type: Number,
         required: false,
     },
     type: {
@@ -52,13 +52,13 @@ const saveItem = () => {
         stories: props.stories,
         type: props.type,
     }
-    console.log('Saving item:', newItem)
+    //console.log('Saving item:', newItem)
     store.addItem(newItem)
 }
 
 const router = useRouter()
 const handleClick = () => {
-    console.log('estas haciendo clic')
+    //console.log('estas haciendo clic')
     console.log(props.id)
     router.push(`/detail/${props.id}`)
 }
@@ -91,17 +91,27 @@ const handleClick = () => {
 <style scoped>
 .detail-card{
     width: 70%;
-    display: grid;
-    grid-template-columns:  repeat(2, 1fr);
+    display: flex;
     padding: 2%;
-    margin: 5%;
+    margin: 1% 5%;
     background-color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
     border-radius: 10px;
     cursor: pointer;
+    
+    .description{
+        width: 70%;
+        .title{
+            padding: 4% 0;
+        }
+    }
 
     .image{
+        width: 30%;
         .cover{
+            width: 100%;
+            display: flex;
+            align-items: center;
             img{
                 width: 90%;
             }
