@@ -12,12 +12,21 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "js-md5": "^0.8.3",
     "pinia": "^2.1.7",
+    "sass": "^1.77.6",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
+    "@types/dotenv": "^8.2.0",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
